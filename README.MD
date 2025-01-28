@@ -8,3 +8,5 @@ Put the code in root `/`:
 
 should transfer data as binary, not text
 have it fixed width then no need to split
+
+TODO: on client side, remove old data else uses up memory
