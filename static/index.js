@@ -18,17 +18,28 @@ var sensorTrace = {
 
 var sensorLayout = {
   autosize: false,
-  width: 800,
-  height: 500,
-  colorway: ["#05AD86"],
+  width: 600,
+  height: 600,
+  colorway: ["#09ffc6"],
   margin: { t: 40, b: 40, l: 80, r: 80, pad: 0 },
   xaxis: {
     gridwidth: "2",
     autorange: true,
+    gridcolor: "#888888",
+    zerolinecolor: "#888888",
   },
   yaxis: {
     gridwidth: "2",
     autorange: true,
+    gridcolor: "#888888",
+    zerolinecolor: "#888888",
+  },
+  plot_bgcolor: "#000000",
+  paper_bgcolor: "#000000",
+  font: {
+    // family: 'Courier New, monospace',
+    // size: 20,
+    color: "#aaaaaa",
   },
 };
 var config = { responsive: true };
@@ -96,6 +107,6 @@ function sendMessage(message) {
 
 function updateValues(data) {
   sensorData.unshift(data);
-  if (sensorData.length > 20) sensorData.pop();
+  if (sensorData.length > /* 20 */ MAX_GRAPH_POINTS) sensorData.pop();
   sensorValues.value = sensorData.join("\r\n");
 }
