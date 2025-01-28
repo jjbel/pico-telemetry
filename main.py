@@ -1,8 +1,10 @@
+from time import sleep
+
 from microdot_asyncio import Microdot, Response, send_file
 # from microdot_utemplate import render_template
 from microdot_asyncio_websocket import with_websocket
+
 from get_data import DataGetter
-import time
 
 # Initialize MicroDot
 app = Microdot()
@@ -22,7 +24,7 @@ async def index(request):
 async def read_sensor(request, ws):
     while True:
 #         data = await ws.receive()
-        time.sleep(.1)
+        sleep(.1)
         await ws.send(str(data_getter.get_data()))
 
 # Static CSS/JSS
