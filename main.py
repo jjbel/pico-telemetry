@@ -16,7 +16,9 @@ data_getter = DataGetter()
 @app.route('/')
 async def index(request):
     # return render_template('index.html)
-    return open('/templates/index.html', 'r').read()
+    with open('/templates/index.html', 'r') as file:
+        out = file.read()
+    return out
 
 
 @app.route('/ws')
