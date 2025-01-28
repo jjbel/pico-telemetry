@@ -1,5 +1,5 @@
 from microdot_asyncio import Microdot, Response, send_file
-from microdot_utemplate import render_template
+# from microdot_utemplate import render_template
 from microdot_asyncio_websocket import with_websocket
 from get_data import DataGetter
 import time
@@ -13,7 +13,8 @@ data_getter = DataGetter()
 # root route
 @app.route('/')
 async def index(request):
-    return render_template('index.html')
+    # return render_template('index.html)
+    return open('/templates/index.html', 'r').read()
 
 
 @app.route('/ws')
