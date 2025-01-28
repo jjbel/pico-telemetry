@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Telemetry - IITB Rocket Team</title>
+    <link rel="stylesheet" href="static/index.css" />
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+    <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div id="clock"></div>
+      <script>
+        setInterval(showTime, 1000);
+
+        // Defining showTime funcion
+        function showTime() {
+          // Getting current time and date
+          let time = new Date();
+          let hour = time.getHours();
+          let min = time.getMinutes();
+          let sec = time.getSeconds();
+
+          hour = hour < 10 ? "0" + hour : hour;
+          min = min < 10 ? "0" + min : min;
+          sec = sec < 10 ? "0" + sec : sec;
+
+          let currentTime = hour + ":" + min + ":" + sec;
+
+          // Displaying the time
+          document.getElementById("clock").innerHTML = currentTime;
+        }
+
+        showTime();
+      </script>
+
+      <div class="title">
+        <h1>Rocket Telemetry</h1>
+        <h2>by IITB Rocket Team</h2>
+      </div>
+
+      <div>
+        Status:
+        <br />
+        online
+      </div>
+    </header>
+
+    <div class="container">
+      <aside>
+        <h2>Live Data</h2>
+        <textarea
+          id="sensor-values"
+          name=""
+          class="values"
+          cols="20"
+          rows="20"
+        ></textarea>
+      </aside>
+      <main class="chart">
+        <h2>Plots</h2>
+        <div class="wrapper">
+          <div id="sensor-chart" class="sensor-chart"></div>
+        </div>
+      </main>
+    </div>
+
+    <script src="static/index.js"></script>
+  </body>
+</html>
