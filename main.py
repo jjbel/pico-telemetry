@@ -1,15 +1,14 @@
 from microdot_asyncio import Microdot, Response, send_file
 from microdot_utemplate import render_template
 from microdot_asyncio_websocket import with_websocket
-from ldr_photoresistor_module import LDR
+from get_data import DataGetter
 import time
 
 # Initialize MicroDot
 app = Microdot()
 Response.default_content_type = 'text/html'
 
-# LDR module
-ldr = LDR(27)
+data_getter = DataGetter()
 
 # root route
 @app.route('/')
@@ -23,7 +22,7 @@ async def read_sensor(request, ws):
     while True:
 #         data = await ws.receive()
         time.sleep(.1)
-        await ws.send(str(ldr.get_light_percentage()))
+        await ws.send(str(data_getter.get_data()))
 
 # Static CSS/JSS
 @app.route("/static/<path:path>")

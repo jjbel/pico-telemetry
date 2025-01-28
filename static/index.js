@@ -11,7 +11,7 @@ var sensorChartDiv = document.getElementById("sensor-chart");
 var sensorTrace = {
   x: [],
   y: [],
-  name: "LDR/Photoresistor",
+  name: "Data",
   mode: "lines+markers",
   type: "line",
 };
